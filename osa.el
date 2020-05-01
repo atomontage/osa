@@ -303,14 +303,14 @@ Errors are signaled if evaluation fails."
                          (insert (format "Sourced from: %s\n" p))
                          (insert-file-contents p)
                          (string-trim-right (buffer-string)))))
-    (let* ((src (mapconcat #'slurp
-                           (append (if (not (listp include))
-                                       (list include)
-                                     include)
-                                   (list path))
-                           "\n\n")))
+    (let ((src (mapconcat #'slurp
+                          (append (if (not (listp include))
+                                      (list include)
+                                    include)
+                                  (list path))
+                          "\n\n")))
       (when debug
-        (with-current-buffer (generate-new-buffer "*osa-debug*")
+        (with-current-buffer (generate-new-buffer "*osa-eval-file*")
           (insert src)
           (goto-char (point-min))
           (when (string= lang "JavaScript") (js2-mode))
