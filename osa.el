@@ -5,7 +5,7 @@
 
 ;; Version: 1.0 - 2020-04-29
 ;; Author: xristos <xristos@sdf.org>
-;; URL:
+;; URL: https://github.com/atomontage/osa
 ;; Package-Requires: ((emacs "25"))
 ;; Keywords: extensions
 
@@ -237,8 +237,8 @@ AEDESC must be a cons of form (type . data) as returned from
 Unpacking is implemented in the generic function `osa--unpack'.
 
 If `osa-strict-unpacking' is T, errors are signaled on all
-unpacking failures. Otherwise (default), original descriptor
-data is returned as-is in a cons of form (:aedesc . data)."
+unpacking failures. Otherwise original descriptor data is
+returned as-is in a cons of form (:aedesc . data)."
   (condition-case-unless-debug err
       (osa--unpack (car aedesc) (cdr aedesc))
     ('error
@@ -292,7 +292,7 @@ in the order given, to the contents of PATH, forming one final source string
 that is passed to `osa-eval'. INCLUDE is meant to be used with reusable
 code that was factored out into library files.
 
-If DEBUG is T, a new buffer is generated and the final source string
+If DEBUG is T, a new buffer is created and the final source string
 inserted there, for later reference/review, before `osa-eval' is called.
 
 See `osa-eval' for extra keyword arguments that are passed through as-is.

@@ -58,11 +58,10 @@ You can set this manually if auto-detection fails.")
   "Display a macOS notification.
 
 MSG is required, all other arguments are optional.
-SOUND if given should be the base name of a file present in:
+SOUND should be the base name of a file present in:
 
 /System/Library/Sounds/
-/Library/Sounds/
-/Users/<user>/Library/Sounds/"
+"
   ;; Example: (osa-examples/notify "This is only a test!" :sound "Ping")
   (osa-eval-file (osa-examples--find "notify.js")
                  :lang "JavaScript"
