@@ -39,7 +39,7 @@
   (and load-file-name
        (concat (file-name-directory load-file-name)
                (file-name-as-directory "scripts")))
-  "Directory to look for example scripts.
+  "Directory that contains example scripts.
 Set this manually if auto-detection fails.")
 
 (defun osa-examples-plist-to-record (plist)
