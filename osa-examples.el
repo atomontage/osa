@@ -40,7 +40,7 @@
        (concat (file-name-directory load-file-name)
                (file-name-as-directory "scripts")))
   "Directory to look for example scripts.
-You can set this manually if auto-detection fails.")
+Set this manually if auto-detection fails.")
 
 (defun osa-examples-plist-to-record (plist)
   (cl-loop for (k v) on plist by #'cddr
