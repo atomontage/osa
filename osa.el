@@ -239,17 +239,18 @@ Unpacking is implemented in the generic function `osa--unpack'.
 If `osa-strict-unpacking' is T, errors are signaled on all
 unpacking failures. Otherwise original descriptor data is
 returned as-is in a cons of form (:aedesc . data)."
-  (condition-case-unless-debug err
-      (osa--unpack (car aedesc) (cdr aedesc))
-    ('error
-     (let ((err-msg (format "%s when unpacking %s"
-                            (error-message-string err)
-                            (prin1-to-string aedesc))))
-       (if osa-strict-unpacking
-           (error "%s" err-msg)
-         (when osa-debug
-           (message "osa-unpack: %s" err-msg) (message nil))
-         (cons :aedesc aedesc))))))
+  (cl-flet ((format-error (err) (format "%s when unpacking %s"
+                                        (error-message-string err)
+                                        (prin1-to-string aedesc)))
+            (unpack () (osa--unpack (car aedesc) (cdr aedesc))))
+    (if osa-strict-unpacking
+        (condition-case-unless-debug err (unpack)
+          ('error (error "%s" (format-error err))))
+      (condition-case err (unpack)
+        ('error (when osa-debug
+                  (message "osa-unpack: %s" (format-error err))
+                  (message nil))
+                (cons :aedesc aedesc))))))
 
 
 ;;;
