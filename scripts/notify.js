@@ -4,8 +4,8 @@ function notify(msg, options)
 {
     if (msg == null) {throw 'Argument "msg" is required';}
 
-    var app  = Application.currentApplication();
-    var args = {};
+    let app  = Application.currentApplication();
+    let args = {};
 
     app.includeStandardAdditions = true;
 
