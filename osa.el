@@ -248,8 +248,9 @@ returned as-is in a cons of form (:aedesc . data)."
           ('error (error "%s" (format-error err))))
       (condition-case err (unpack)
         ('error (when osa-debug
-                  (message "osa-unpack: %s" (format-error err))
-                  (message nil))
+                  (let ((message-truncate-lines t))
+                    (message "osa-unpack: %s" (format-error err))
+                    (message nil)))
                 (cons :aedesc aedesc))))))
 
 
