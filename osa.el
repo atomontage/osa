@@ -135,7 +135,6 @@ Use `osa-unpack' rather than directly calling `osa--unpack'.")
                                (nreverse ret)))))
 
 (cl-defmethod osa--pack ((object (head :type)))
-  ;; TODO: Move to a dispatch table
   (pcase (cl-second object)
     (:msng (cons "type" "gnsm"))
     (:null (cons "type" "llun"))
@@ -180,7 +179,6 @@ Packing is implemented in the generic function `osa--pack'."
 
 (cl-defmethod osa--unpack ((_type (eql :type)) (v string))
   (cl-assert (> (length v) 0) t)        ; is it always == 4?
-  ;; TODO: Move to a dispatch table
   (pcase v
     ("gnsm" (list :type :msng))
     ("llun" (list :type :null))
@@ -261,8 +259,9 @@ returned as-is in a cons of form (:aedesc . data)."
 
 (cl-defun osa-eval (src &key (unpack t) (lang "AppleScript")
                         call args &allow-other-keys)
-  "Evaluate SRC through OSA, which must be AppleScript or JavaScript
-source code and return its result.
+  "Evaluate SRC through OSA and return the result.
+
+SRC must be AppleScript or JavaScript source code.
 
 If UNPACK is T (default), result is unpacked into Emacs Lisp objects
 through `osa-unpack'. Otherwise, unmodified Lisp representation of
