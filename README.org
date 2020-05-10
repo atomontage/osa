@@ -6,7 +6,7 @@ as provided by Emacs Mac port.
 
 * Features
 All of the necessary Apple Event types that are needed to write useful
-scripts are supported for both packing and unpacking: 
+scripts are supported for both packing and unpacking:
 
 + True is unpacked to T
 + False is unpacked to NIL
@@ -26,12 +26,12 @@ Additional types may be implemented in future releases.
 
 * Note
 Does not work with official GNU Emacs for macOS (or emacsformacosx.com).
-You need Yamamoto Mitsuharu's excellent [[https://bitbucket.org/mituharu/emacs-mac][Emacs Mac port]], which can also 
-be found in MacPorts and Homebrew, though cloning its repository and 
+You need Yamamoto Mitsuharu's excellent [[https://bitbucket.org/mituharu/emacs-mac][Emacs Mac port]], which can also
+be found in MacPorts and Homebrew, though cloning its repository and
 building from source is highly recommended.
 
-* Usage 
-See osa-examples.el 
+* Usage
+See osa-examples.el
 
 * License
 This repository uses 2 different licenses:
