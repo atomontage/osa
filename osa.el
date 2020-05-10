@@ -62,7 +62,7 @@
 (defvar osa-strict-unpacking nil
   "If T, signal errors when an Apple Event descriptor can not be unpacked.
 Otherwise, unpacking returns descriptor data as-is, in a cons of form
-(:aedesc . data).")
+\(:aedesc . data).")
 
 (cl-defgeneric osa--pack (object)
   "Pack an Emacs Lisp object for use with `mac-osa-script'.
@@ -152,7 +152,7 @@ Use `osa-unpack' rather than directly calling `osa--unpack'.")
   (cons "null" nil))
 
 (defun osa-pack (object)
-  "Pack Emacs Lisp object into an Apple Event Lisp representation.
+  "Pack Emacs Lisp OBJECT into an Apple Event Lisp representation.
 Return cons of form (type . data) on success.
 Errors are signaled otherwise.
 
