@@ -241,6 +241,7 @@
 
 ;;;###autoload
 (defun osa-test ()
+  "Run OSA test suite through ERT."
   (interactive)
   (ert-run-tests-interactively "^osa-"))
 
