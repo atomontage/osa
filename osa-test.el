@@ -239,5 +239,10 @@
   (should (equal :null (osa-eval "return")))
   (should (equal :null (osa-eval ""))))
 
+;;;###autoload
+(defun osa-test ()
+  (interactive)
+  (ert-run-tests-interactively "^osa-"))
+
 (provide 'osa-test)
 ;;; osa-test.el ends here

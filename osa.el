@@ -151,6 +151,7 @@ Use `osa-unpack' rather than directly calling `osa--unpack'.")
 (cl-defmethod osa--pack ((_object (eql :null)))
   (cons "null" nil))
 
+;;;###autoload
 (defun osa-pack (object)
   "Pack Emacs Lisp OBJECT into an Apple Event Lisp representation.
 Return cons of form (type . data) on success.
@@ -232,6 +233,7 @@ Packing is implemented in the generic function `osa--pack'."
   (let ((key (intern-soft (format ":%s" type))))
     (osa--unpack key v)))
 
+;;;###autoload
 (defun osa-unpack (aedesc)
   "Unpack Emacs Lisp representation of Apple Event descriptor.
 Return Emacs Lisp object on successful parsing or descriptor
@@ -264,6 +266,7 @@ returned as-is in a cons of form (:aedesc . data)."
 ;;;
 
 
+;;;###autoload
 (cl-defun osa-eval (src &key (unpack t) (lang "AppleScript")
                         call args &allow-other-keys)
   "Evaluate SRC through OSA and return the result.
@@ -287,7 +290,7 @@ Errors are signaled if evaluation fails."
     (let ((res (apply #'mac-osa-script src lang nil t call args)))
       (if unpack (osa-unpack res) res))))
 
-
+;;;###autoload
 (cl-defun osa-eval-file (path &rest rest &key (lang "AppleScript")
                               include debug &allow-other-keys)
   "Read contents of PATH, which must be a file containing AppleScript or
@@ -321,7 +324,6 @@ Errors are signaled if evaluation fails."
         (with-current-buffer (generate-new-buffer "*osa-eval-file*")
           (insert src)
           (goto-char (point-min))
-          (when (string= lang "JavaScript") (js2-mode))
           (message "osa-eval: %d characters written to buffer %s"
                    (buffer-size) (buffer-name))))
       (apply #'osa-eval src rest))))

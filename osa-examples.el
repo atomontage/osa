@@ -54,6 +54,7 @@ Set this manually if auto-detection fails.")
     (error "Script directory is unset (osa-examples-script-directory)"))
   (concat osa-examples-script-directory script-file))
 
+;;;###autoload
 (cl-defun osa-examples/notify (msg &rest rest &key title subtitle sound)
   "Display a macOS notification.
 
@@ -68,6 +69,7 @@ SOUND should be the base name of a file present in:
                  :call "notify"
                  :args (list msg (osa-examples-plist-to-record rest))))
 
+;;;###autoload
 (defun osa-examples/finder (path)
   "Reveal PATH in a new Finder window.
 Return PATH."
@@ -75,6 +77,7 @@ Return PATH."
     (osa-eval-file (osa-examples--find "show-finder.applescript")
                    :call "show_finder" :args (list path))))
 
+;;;###autoload
 (defun osa-examples/terminal (path)
   "Open a new Terminal.app window and cd to PATH.
 
