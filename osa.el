@@ -1,4 +1,4 @@
-;;; osa.el --- Open Scripting Architecture bridge -*- lexical-binding: t; -*-
+;;; osa.el --- OSA (JavaScript / AppleScript) bridge -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020 xristos@sdf.org
 ;; All rights reserved
@@ -35,8 +35,9 @@
 
 ;;; Commentary:
 ;;
-;; This is an Emacs Lisp to Open Scripting Architecture bridge, working on
-;; top of Apple Event descriptors as provided by Emacs Mac port.
+;; This is an Emacs Lisp to macOS Open Scripting Architecture
+;; (JavaScript / AppleScript) bridge, working on top of Apple Event descriptors
+;; as provided by Emacs Mac port.
 ;;
 ;; Please see README.org for documentation.
 ;;
