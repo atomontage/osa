@@ -239,7 +239,6 @@
   (should (equal :null (osa-eval "return")))
   (should (equal :null (osa-eval ""))))
 
-;;;###autoload
 (defun osa-test ()
   "Run OSA test suite through ERT."
   (interactive)
