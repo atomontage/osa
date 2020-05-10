@@ -18,7 +18,8 @@ scripts are supported for both packing and unpacking:
 + Record is unpacked to an Emacs Lisp tagged alist: (:reco (k . v) ..)
 
 Conversely for packing, except T and NIL are always packed to True and
-False (osa-pack will never generate a Boolean type).
+False (never a Boolean type) and tagged (:list ..) is packed like a
+vector.
 
 Additional types may be implemented in future releases.
 

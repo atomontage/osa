@@ -177,6 +177,15 @@
                    ("fals" . "") ("list"))
                  (osa--pack [t [t nil] nil []]))))
 
+(ert-deftest osa-pack-list ()
+  (should (equal '("list") (osa--pack '(:list))))
+  (should (equal '("list" ("list" ("list")))
+                 (osa--pack '(:list (:list (:list))))))
+  (should (equal '("list" ("true" . "")
+                   ("list" ("true" . "") ("fals" . ""))
+                   ("fals" . "") ("list"))
+                 (osa--pack '(:list t (:list t nil) nil (:list))))))
+
 (ert-deftest osa-pack-type ()
   (should (equal '("type" . "llun") (osa--pack '(:type :null))))
   (should (equal '("type" . "gnsm") (osa--pack '(:type :msng))))

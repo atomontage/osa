@@ -74,7 +74,7 @@ The following Emacs Lisp objects are supported:
 + Integer (must be within signed 32bit range or error is signaled)
 + String (encoded as UTF-16LE)
 + Tagged alist (:reco (k . v) ..)
-+ Vector
++ Vector and tagged list (:list ..)
 + :null
 + (:type :null), (:type :msng), (:type data)
 
@@ -122,7 +122,14 @@ Use `osa-unpack' rather than directly calling `osa--unpack'.")
    with ret
    for elem across object do
    (push (osa--pack elem) ret)
-   finally return (nconc (list "list") (nreverse ret))))
+   finally return (cons "list" (nreverse ret))))
+
+(cl-defmethod osa--pack ((object (head :list)))
+  (cl-loop
+   with ret
+   for elem in (cdr object) do
+   (push (osa--pack elem) ret)
+   finally return (cons "list" (nreverse ret))))
 
 (cl-defmethod osa--pack ((object (head :reco)))
   (cl-loop
@@ -214,7 +221,7 @@ Packing is implemented in the generic function `osa--pack'."
                                 ret)))
              (push (cons tag (osa--unpack (car rest) (cdr rest)))
                    ret))
-           finally return (nconc (list :reco) (nreverse ret))))
+           finally return (cons :reco (nreverse ret))))
 
 (cl-defmethod osa--unpack
     :before ((_type symbol) (v string))
