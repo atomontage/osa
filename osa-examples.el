@@ -34,6 +34,8 @@
 ;;; Code:
 
 (require 'osa)
+(require 'subr-x)
+(require 'cl-lib)
 
 (defvar osa-examples-script-directory
   (and load-file-name
@@ -61,8 +63,7 @@ Set this manually if auto-detection fails.")
 MSG is required, all other arguments are optional.
 SOUND should be the base name of a file present in:
 
-/System/Library/Sounds/
-"
+/System/Library/Sounds/"
   ;; Example: (osa-examples/notify "This is only a test!" :sound "Ping")
   (osa-eval-file (osa-examples--find "notify.js")
                  :lang "JavaScript"

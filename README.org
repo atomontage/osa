@@ -8,9 +8,9 @@ as provided by Emacs Mac port.
 All of the necessary Apple Event types that are needed to write useful
 scripts are supported for both packing and unpacking:
 
-+ True is unpacked to T
-+ False is unpacked to NIL
-+ Boolean is unpacked to T or NIL
++ True is unpacked to t
++ False is unpacked to nil
++ Boolean is unpacked to t or nil
 + Long is unpacked from signed 32bit to Emacs Lisp integer
 + Null which is distinct from null type, is unpacked to keyword :null
 + Type is unpacked to either (:type :null), (:type :msng), (:type data)
@@ -18,7 +18,7 @@ scripts are supported for both packing and unpacking:
 + List is unpacked to Emacs Lisp vector
 + Record is unpacked to an Emacs Lisp tagged alist: (:reco (k . v) ..)
 
-Conversely for packing, except T and NIL are always packed to True and
+Conversely for packing, except t and nil are always packed to True and
 False (never a Boolean type) and tagged (:list ..) is packed like a
 vector.
 
