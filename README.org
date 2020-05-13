@@ -25,7 +25,9 @@ vector.
 Additional types may be implemented in future releases.
 
 * Note
-Does not work with official GNU Emacs for macOS (or emacsformacosx.com).
+Does not work with official GNU Emacs for macOS (or emacsformacosx.com) as it
+does not expose an Apple Event API.
+
 You need Yamamoto Mitsuharu's excellent [[https://bitbucket.org/mituharu/emacs-mac][Emacs Mac port]], which can also
 be found in MacPorts and Homebrew, though cloning its repository and
 building from source is highly recommended.
