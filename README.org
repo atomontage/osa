@@ -33,6 +33,12 @@ be found in MacPorts and Homebrew, though cloning its repository and
 building from source is highly recommended.
 
 * Usage
+#+BEGIN_SRC emacs-lisp
+;; Ensure directory of osa.el is in your load-path and add the following
+;; to your init file:
+(require 'osa-examples)
+#+END_SRC
+
 See osa-examples.el
 
 * License
