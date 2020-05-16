@@ -3,10 +3,11 @@
 ;; Copyright (C) 2020 xristos@sdf.org
 ;; All rights reserved
 
-;; Version: 1.0 - 2020-04-29
+;; Modified: 2020-04-29
+;; Version: 1.0
 ;; Author: xristos <xristos@sdf.org>
 ;; URL: https://github.com/atomontage/osa
-;; Package-Requires: ((emacs "25"))
+;; Package-Requires: ((emacs "25.1"))
 ;; Keywords: extensions
 
 ;; Redistribution and use in source and binary forms, with or without
@@ -50,12 +51,13 @@
 
 ;;; Code:
 
-(require 'mac)
+(require 'mac nil t)
 (require 'seq)
 (require 'subr-x)
 (require 'bindat)
 (require 'cl-lib)
 (require 'cl-generic)
+
 
 (defvar osa-debug t
   "If non-nil, log unpacking errors to *Messages*.")
