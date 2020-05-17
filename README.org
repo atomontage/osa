@@ -1,4 +1,5 @@
 [[https://opensource.org/licenses/BSD-2-Clause][https://img.shields.io/badge/license-BSD-blue.svg]]
+[[https://melpa.org/#/osa][https://melpa.org/packages/osa-badge.svg]]
 
 osa.el is an Emacs Lisp to macOS Open Scripting Architecture bridge
 (JavaScript / AppleScript) working on top of Apple Event descriptors
@@ -34,8 +35,8 @@ building from source is highly recommended.
 
 * Usage
 #+BEGIN_SRC emacs-lisp
-;; Ensure directory of osa.el is in your load-path and add the following
-;; to your init file:
+;; Install through MELPA or ensure directory of osa.el is in your load-path
+;; and add the following to your init file:
 (require 'osa-examples)
 #+END_SRC
 
