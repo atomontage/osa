@@ -33,13 +33,19 @@ You need Yamamoto Mitsuharu's excellent [[https://bitbucket.org/mituharu/emacs-m
 be found in MacPorts and Homebrew, though cloning its repository and
 building from source is highly recommended.
 
-* Usage
+* Install
+Simple and most flexible method:
+
 #+BEGIN_SRC emacs-lisp
-;; Install through MELPA or ensure directory of osa.el is in your load-path
-;; and add the following to your init file:
+;; Clone this repository, ensure directory of osa.el is in your
+;; load-path and add the following to your init file:
 (require 'osa-examples)
 #+END_SRC
 
+Alternatively, you can install through [[https://melpa.org/][MELPA]] or some other Emacs package
+manager.
+
+* Usage
 See osa-examples.el
 
 * License
