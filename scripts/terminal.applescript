@@ -27,5 +27,10 @@ on terminal(p as string)
             activate
         end tell
     end tell
+
+    if d is "" then
+        set d to (path to home folder)
+    end if
+
     return (POSIX path of d) as text
 end terminal
